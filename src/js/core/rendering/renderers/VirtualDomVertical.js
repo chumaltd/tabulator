@@ -259,7 +259,7 @@ export default class VirtualDomVertical extends Renderer{
 
 			this.vDomBottom = position -1;
 
-			while ((rowsHeight <= containerHeight + this.vDomWindowBuffer || i < this.vDomWindowMinTotalRows) && this.vDomBottom < rowsCount -1){
+			while (this.vDomBottom < rowsCount -1){
 				var index = this.vDomBottom + 1,
 				row = rows[index],
 				rowHeight = 0;
