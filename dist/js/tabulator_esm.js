@@ -2227,7 +2227,7 @@ class Column extends CoreFeature{
 
 	//build title element of column
 	_buildColumnHeaderTitle(){
-		var def = this.definition;
+		var def = this.definition;
 
 		var titleHolderElement = document.createElement("div");
 		titleHolderElement.classList.add("tabulator-col-title");
@@ -5099,7 +5099,7 @@ function maskInput(el, options){
 	var mask = options.mask,
 	maskLetter = typeof options.maskLetterChar !== "undefined" ? options.maskLetterChar : "A",
 	maskNumber = typeof options.maskNumberChar !== "undefined" ? options.maskNumberChar : "9",
-	maskWildcard = typeof options.maskWildcardChar !== "undefined" ? options.maskWildcardChar : "*";
+	maskWildcard = typeof options.maskWildcardChar !== "undefined" ? options.maskWildcardChar : "*";
 
 	function fillSymbols(index){
 		var symbol = mask[index];
@@ -8573,7 +8573,7 @@ class Filter extends Module{
 	//initialize column header filter
 	initializeColumn(column, value){
 		var self = this,
-		field = column.getField();
+		field = column.getField();
 
 		//handle successfull value change
 		function success(value){
@@ -11784,7 +11784,7 @@ class GroupRows extends Module{
 	}
 
 	updateGroupRows(force){
-		var output = [];
+		var output = [];
 
 		this.groupList.forEach((group) => {
 			output = output.concat(group.getHeadersAndRows());
@@ -12072,7 +12072,7 @@ class HtmlTableImport extends Module{
 		columns = options.columns,
 		headers = element.getElementsByTagName("th"),
 		rows = element.getElementsByTagName("tbody")[0],
-		data = [];
+		data = [];
 
 		this.hasIndex = false;
 
@@ -12373,7 +12373,7 @@ class Import extends Module{
             
             input.addEventListener("change", (e) => {
                 var file = input.files[0],
-                reader = new FileReader();
+                reader = new FileReader();
                 
                 switch(this.table.options.importReader){
                     case "buffer":
@@ -13732,7 +13732,7 @@ class MoveRows extends Module{
 
 	initializeGroupHeader(group){
 		var self = this,
-		config = {};
+		config = {};
 
 		//inter table drag drop
 		config.mouseup = function(e){
@@ -14055,7 +14055,7 @@ class MoveRows extends Module{
 	moveHoverTable(e){
 		var rowHolder = this.table.rowManager.getElement(),
 		scrollTop = rowHolder.scrollTop,
-		yPos = ((this.touchMove ? e.touches[0].pageY : e.pageY) - rowHolder.getBoundingClientRect().top) + scrollTop;
+		yPos = ((this.touchMove ? e.touches[0].pageY : e.pageY) - rowHolder.getBoundingClientRect().top) + scrollTop;
 
 		this.hoverElement.style.top = (yPos - this.startY) + "px";
 	}
@@ -18410,7 +18410,7 @@ class Sort extends Module{
 		var self = this,
 		sortList = this.table.options.sortOrderReverse ? self.sortList.slice().reverse() : self.sortList,
 		sortListActual = [],
-		rowComponents = [];
+		rowComponents = [];
 
 		if(this.subscribedExternal("dataSorting")){
 			this.dispatchExternal("dataSorting", self.getSort());
@@ -21019,7 +21019,7 @@ class VirtualDomVertical extends Renderer{
 
 			this.vDomBottom = position -1;
 
-			while ((rowsHeight <= containerHeight + this.vDomWindowBuffer || i < this.vDomWindowMinTotalRows) && this.vDomBottom < rowsCount -1){
+			while (this.vDomBottom < rowsCount -1){
 				var index = this.vDomBottom + 1,
 				row = rows[index],
 				rowHeight = 0;
@@ -21939,7 +21939,7 @@ class RowManager extends CoreFeature{
 		var table = this.table,
 		stage = "",
 		index = 0,
-		cascadeOrder = ["all", "dataPipeline", "display", "displayPipeline", "end"];
+		cascadeOrder = ["all", "dataPipeline", "display", "displayPipeline", "end"];
 		
 		
 		if(typeof handler === "function"){
@@ -22301,7 +22301,7 @@ class RowManager extends CoreFeature{
 	
 	//adjust the height of the table holder to fit in the Tabulator element
 	adjustTableSize(){
-		var initialHeight = this.element.clientHeight;
+		var initialHeight = this.element.clientHeight;
 		
 		if(this.renderer.verticalFillMode === "fill"){
 			let otherHeight =  Math.floor(this.table.columnManager.getElement().getBoundingClientRect().height + (this.table.footerManager && this.table.footerManager.active && !this.table.footerManager.external ? this.table.footerManager.getElement().getBoundingClientRect().height : 0));
